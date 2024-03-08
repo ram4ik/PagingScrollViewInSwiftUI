@@ -29,7 +29,7 @@ struct HorizontalPagingView: View {
                             .frame(maxWidth: .infinity)
                             .padding(10)
                             .id(index)
-                            .scrollTransition(.interactive) { content, phase in
+                            .scrollTransition(.interactive.threshold(.visible(0.7))) { content, phase in
                                 content
                                     .opacity(phase.isIdentity ? 1 : 0)
                                     .offset(y: phase.isIdentity ? 0 : -100)
