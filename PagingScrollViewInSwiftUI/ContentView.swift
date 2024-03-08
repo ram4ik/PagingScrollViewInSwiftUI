@@ -19,11 +19,12 @@ struct ContentView: View {
                                 .foregroundStyle(.white)
                         }
                         .frame(maxWidth: .infinity)
+                        .containerRelativeFrame(.vertical, alignment: .center)
                 }
             }
         }
         .scrollTargetLayout()
-        .scrollTargetBehavior(.viewAligned)
+        .scrollTargetBehavior(.paging)
         .scrollBounceBehavior(.always)
     }
 }
