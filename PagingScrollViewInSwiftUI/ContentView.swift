@@ -10,10 +10,9 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         ScrollView {
-            VStack(spacing: 30) {
+            VStack(spacing: 0) {
                 ForEach(0..<10) { index in
                     Rectangle()
-                        .frame(width: 300, height: 300)
                         .overlay {
                             Text("\(index)")
                                 .foregroundStyle(.white)
@@ -23,6 +22,7 @@ struct ContentView: View {
                 }
             }
         }
+        .ignoresSafeArea()
         .scrollTargetLayout()
         .scrollTargetBehavior(.paging)
         .scrollBounceBehavior(.always)
