@@ -9,23 +9,17 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        ScrollView {
-            VStack(spacing: 0) {
-                ForEach(0..<10) { index in
-                    Rectangle()
-                        .overlay {
-                            Text("\(index)")
-                                .foregroundStyle(.white)
-                        }
-                        .frame(maxWidth: .infinity)
-                        .containerRelativeFrame(.vertical, alignment: .center)
+        TabView {
+            VerticalPagingView()
+                .tabItem {
+                    Label("Vertical", systemImage: "distribute.vertical.top.fill")
                 }
-            }
+            
+            HorizontalPagingView()
+                .tabItem {
+                    Label("Horizontal", systemImage: "square.filled.and.line.vertical.and.square")
+                }
         }
-        .ignoresSafeArea()
-        .scrollTargetLayout()
-        .scrollTargetBehavior(.paging)
-        .scrollBounceBehavior(.always)
     }
 }
 
