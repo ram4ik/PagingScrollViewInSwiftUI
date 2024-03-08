@@ -29,12 +29,14 @@ struct HorizontalPagingView: View {
                             .frame(maxWidth: .infinity)
                             .padding(10)
                             .id(index)
-                            .scrollTransition { content, phase in
+                            .scrollTransition(.interactive) { content, phase in
                                 content
                                     .opacity(phase.isIdentity ? 1 : 0)
+                                    .offset(y: phase.isIdentity ? 0 : -100)
                             }
                     }
                 }
+                .padding(.vertical, 100)
             }
             .ignoresSafeArea()
             .scrollTargetLayout()
